@@ -1,0 +1,25 @@
+{
+  "name": "electron-of-vue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "http://github.com/tlc123321/electron-of-vue.git",
+  "author": "谭立超 <2445733281@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-plugin-vue": "latest"
+  },
+  "scripts": {
+    "install:all": "cd electron-app && cnpm install && cd../vue-app && cnpm install",
+    "dev": "cd electron-app && cnpm run start && cd../vue-app && cnpm run dev",
+    "build": "cd electron-app && npm run build",
+    "lint": "eslint. --ext.vue,.js,.jsx,.cjs,.mjs --fix --ignore-path.gitignore"
+  },
+  "dependencies": {
+    "pinia": "^2.1.7",
+    "vue": "^3.3.10",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  }
+}
