@@ -1,25 +1,28 @@
 {
   "name": "electron-of-vue",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "electron-app/main.js",
   "repository": "http://github.com/tlc123321/electron-of-vue.git",
-  "author": "谭立超 <2445733281@qq.com>",
+  "author": "tlc",
+  "description": "electron 模板",
   "license": "MIT",
-  "devDependencies": {
-    "eslint": "^8.55.0",
-    "eslint-plugin-vue": "latest"
-  },
   "scripts": {
-    "install:all": "cd electron-app && cnpm install && cd../vue-app && cnpm install",
-    "dev": "cd electron-app && cnpm run start && cd../vue-app && cnpm run dev",
-    "build": "cd electron-app && npm run build",
+    "install:all": "yarn && cd electron-app && yarn && cd../vue-app && yarn",
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:vue-app\" \"yarn dev:electron-app\"",
+    "dev:electron-app": "wait-on http://localhost:5173 && cd electron-app && yarn start",
+    "dev:vue-app": "cd vue-app && yarn dev",
+    "build": "cross-env NODE_ENV=production yarn build:vue-app && yarn build:electron-app",
+    "build:electron-app": "cd electron-app && yarn build",
+    "build:vue-app": "cd vue-app && yarn build",
     "lint": "eslint. --ext.vue,.js,.jsx,.cjs,.mjs --fix --ignore-path.gitignore"
   },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.55.0",
+    "eslint-plugin-vue": "latest",
+    "wait-on": "^7.2.0"
+  },
   "dependencies": {
-    "pinia": "^2.1.7",
-    "vue": "^3.3.10",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "cross-env": "^7.0.3"
   }
 }

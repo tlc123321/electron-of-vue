@@ -1,12 +1,21 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
+const NODE_ENV = process.env.NODE_ENV;
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1200,
+    height: 960,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   });
-  
-  win.loadFile('index.html');
+  if(NODE_ENV === 'development') {
+    win.loadURL('http://localhost:5173/');
+    win.webContents.openDevTools();
+  } else {
+    win.loadFile(path.join(__dirname, './vue_dist/index.html'));
+  }
 };
 
 app.whenReady().then(() => {
