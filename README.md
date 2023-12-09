@@ -14,29 +14,20 @@ node >= 16
 
 ## 安装依赖
 
-```bash
-npm i cnpm -g
-```
 
 ```bash
-npm run install:all
+yarn install:all
 ```
 
 ### 启动
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ### 打包
 
 ```bash
-npm run build
-```
-
-### 发布
-
-```bash
-npm run release
+yarn build
 ```
 
