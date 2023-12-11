@@ -7,7 +7,7 @@
   "description": "electron 模板",
   "license": "MIT",
   "scripts": {
-    "install:all": "yarn && cd electron-app && yarn && cd../vue-app && yarn",
+    "install:all": "yarn && cd vue-app && yarn && cd ../electron-app && yarn",
     "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:vue-app\" \"yarn dev:electron-app\"",
     "dev:electron-app": "wait-on http://localhost:5173 && cd electron-app && yarn start",
     "dev:vue-app": "cd vue-app && yarn dev",

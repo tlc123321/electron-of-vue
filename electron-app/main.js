@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow} = require('electron');
 const path = require('path');
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -7,8 +7,8 @@ const createWindow = () => {
     width: 1200,
     height: 960,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
+      preload: path.join(__dirname, 'preload.js'),
+    },
   });
   if(NODE_ENV === 'development') {
     win.loadURL('http://localhost:5173/');
@@ -17,7 +17,6 @@ const createWindow = () => {
     win.loadFile(path.join(__dirname, './vue_dist/index.html'));
   }
 };
-
 app.whenReady().then(() => {
   createWindow();
   app.on('activate', () => {
@@ -25,8 +24,6 @@ app.whenReady().then(() => {
   });
 
   app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+    if (process.platform!== 'darwin') app.quit();
   });  
 });
-
-

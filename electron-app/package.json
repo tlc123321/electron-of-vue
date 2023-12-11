@@ -1,11 +1,11 @@
 {
-  "name": "electron-template",
+  "name": "electron-of-vue",
   "version": "1.1.0",
   "description": "electron 模板",
   "main": "./main.js",
-  "repository": "https://github.com/LibraHeresy/electron-template.git",
-  "author": "LibraHeresy <34244494988@qq.com>",
-  "license": "GPL-3.0",
+  "repository": "http://github.com/tlc123321/electron-of-vue.git",
+  "author": "tlc",
+  "license": "MIT",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
